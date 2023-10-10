@@ -4,8 +4,8 @@ import React from "react";
 import SongLyric from "./SongLyric";
 import { containsQuery, isMobile, queriesFound } from "./utils.js";
 
-const lyricsJSON = require("../paramore-lyrics/combined_lyrics.json");
-const albumMap = require("../paramore-lyrics/album_map.json");
+const lyricsJSON = require("../lyrics/combined_lyrics.json");
+const albumMap = require("../lyrics/album_map.json");
 const mobile = isMobile();
 type QueriedLyricsProps = {
   queries: Array<string>,
