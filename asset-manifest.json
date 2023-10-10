@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/paramore/static/css/main.5ce2b1e8.css",
+    "main.js": "/paramore/static/js/main.97c349d7.js",
+    "index.html": "/paramore/index.html",
+    "main.5ce2b1e8.css.map": "/paramore/static/css/main.5ce2b1e8.css.map",
+    "main.97c349d7.js.map": "/paramore/static/js/main.97c349d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ce2b1e8.css",
+    "static/js/main.97c349d7.js"
+  ]
+}
