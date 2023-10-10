@@ -1,28 +1,24 @@
 // @flow
-export const ArtistName = "taylor swift";
+export const ArtistName = "paramore & hayley williams";
 
 export const ModalText =
-  'Search for a word or a phrase and see all the places Taylor Swift \
-  has used it in her music! To search for multiple words or phrases, use \
-  a comma between them. Use a * for wildcard search. Scraped data can be found \
-  <a href="https://github.com/shaynak/taylor-swift-lyrics">here</a>. \
-  Curious about what people are searching? See our \
-  <a href="https://shaynak-taylor-swift.goatcounter.com/">analytics</a>! \
-  <br><br>Last updated: 7/10/23. First published 12/28/20.';
+  "Search for a word or a phrase and see all the places Paramore or Hayley Williams \
+  has used it in their music! To search for multiple words or phrases, use \
+  a comma between them. Use a * for wildcard search. \
+  <br><br>Last updated: 09/10/23. First published 09/10/23.";
 
 // Ordered list of albums for selector - keep in sync with album map
 export const ALBUMS = [
-  "Taylor Swift",
-  "Beautiful Eyes",
-  "Fearless",
-  "Speak Now",
-  "Red",
-  "1989",
-  "reputation",
-  "Lover",
-  "folklore",
-  "evermore",
-  "Midnights",
-  "Collaborations",
-  "Movie Soundtracks"
+  "All We Know Is Falling",
+  "Riot!",
+  "The B-Sides",
+  "brand new eyes",
+  "Singles Club",
+  "Paramore",
+  "After Laughter",
+  "Petals for Armor",
+  "FLOWERS for VASES / descansos",
+  "This Is Why",
+  "Re: This Is Why",
+  "Soundtracks",
 ];

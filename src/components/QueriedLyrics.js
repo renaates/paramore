@@ -4,8 +4,8 @@ import React from "react";
 import SongLyric from "./SongLyric";
 import { containsQuery, isMobile, queriesFound } from "./utils.js";
 
-const lyricsJSON = require("../taylor-swift-lyrics/lyrics.json");
-const albumMap = require("../taylor-swift-lyrics/album_map.json");
+const lyricsJSON = require("../paramore-lyrics/combined_lyrics.json");
+const albumMap = require("../paramore-lyrics/album_map.json");
 const mobile = isMobile();
 type QueriedLyricsProps = {
   queries: Array<string>,
@@ -13,11 +13,7 @@ type QueriedLyricsProps = {
   isLoading: boolean,
 };
 
-export default function QueriedLyrics({
-  queries,
-  selectedAlbums,
-  isLoading,
-}: QueriedLyricsProps): React$MixedElement {
+export default function QueriedLyrics({ queries, selectedAlbums, isLoading }: QueriedLyricsProps): React$MixedElement {
   const isSelectedAlbum = (album: string): boolean => {
     if (selectedAlbums.length === 0) {
       return true;
@@ -58,52 +54,50 @@ export default function QueriedLyrics({
   return (
     <div>
       <div className={mobile ? "QueriedLyrics-mobile" : "QueriedLyrics"}>
-        {isLoading ? <div className="loading"></div> : Object.keys(lyricsJSON)
-          .sort((album1, album2) => {
-            if (album1 === "Unreleased Songs") {
-              return 1;
-            } else if (album2 === "Unreleased Songs") {
-              return -1;
-            }
-            return 0;
-          })
-          .map((album) =>
-            Object.keys(lyricsJSON[album]).map((song) =>
-              lyricsJSON[album][song].map((songLyric) => {
-                if (albumMap[album] == undefined) {
-                  console.log(song);
-                console.log(album);
-                }
-                counter++;
-                if (
-                  isSelectedAlbum(album) &&
-                  queries.some(
-                    (query) =>
-                      containsQuery(songLyric.lyric, query)["start"] >= 0
-                  ) &&
-                  album !== "Uncategorized"
-                ) {
-                  return (
-                    <SongLyric
-                      key={counter}
-                      album={
-                        !albumMap[album].includes("Collaborations") &&
-                        !albumMap[album].includes("Movie Soundtracks")
-                          ? albumMap[album]
-                          : album
-                      }
-                      song={song}
-                      lyric={songLyric.lyric}
-                      next={songLyric.next}
-                      prev={songLyric.prev}
-                      queries={queries}
-                    />
-                  );
-                }
-                return <></>;
-              })
+        {isLoading ? (
+          <div className="loading"></div>
+        ) : (
+          Object.keys(lyricsJSON)
+            .sort((album1, album2) => {
+              if (album1 === "Unreleased Songs") {
+                return 1;
+              } else if (album2 === "Unreleased Songs") {
+                return -1;
+              }
+              return 0;
+            })
+            .map((album) =>
+              Object.keys(lyricsJSON[album]).map((song) =>
+                lyricsJSON[album][song].map((songLyric) => {
+                  if (albumMap[album] == undefined) {
+                    console.log(song);
+                    console.log(album);
+                  }
+                  counter++;
+                  if (
+                    isSelectedAlbum(album) &&
+                    queries.some((query) => containsQuery(songLyric.lyric, query)["start"] >= 0) &&
+                    album !== "Uncategorized"
+                  ) {
+                    return (
+                      <SongLyric
+                        key={counter}
+                        album={
+                          !albumMap[album].includes("Collaborations") && !albumMap[album].includes("Soundtracks") ? albumMap[album] : album
+                        }
+                        song={song}
+                        lyric={songLyric.lyric}
+                        next={songLyric.next}
+                        prev={songLyric.prev}
+                        queries={queries}
+                      />
+                    );
+                  }
+                  return <></>;
+                })
+              )
             )
-          )}
+        )}
       </div>
       <div className={mobile ? "totalResults-mobile" : "totalResults"}>
         Found {occurrences} usage{occurrences === 1 ? "" : "s"} in {songs} song
