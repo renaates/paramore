@@ -23,8 +23,8 @@ export default function InfoModal({ handler, display }: InfoModalProps): React$M
       <div className={mobile ? "ModalBox ModalBox-mobile" : "ModalBox"}>
         <p dangerouslySetInnerHTML={{ __html: ModalText }} />
         <p style={{ fontSize: "14px" }}>
-          Re-made for Paramore and Hayley Williams by&nbsp;<a href="http://renaates.github.io">Renee Steinberg.</a> If you have comments or
-          suggestions, contact me by <a href="mailto:renee.t.steinberg@gmail.com">email</a>!
+          Re-made for Paramore and Hayley Williams by&nbsp;<a href="http://renaates.github.io">Renee.</a> If you have comments or
+          suggestions, my Twitter is <a href="https://twitter.com/renaateste">@renaateste</a>!
         </p>
         {/** CREDITS: Please do not edit this. Feel free to add your own credits to ModalText. */}
         <p style={{ fontSize: "14px" }}>
